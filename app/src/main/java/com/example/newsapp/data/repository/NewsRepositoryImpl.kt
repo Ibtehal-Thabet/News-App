@@ -12,4 +12,8 @@ class NewsRepositoryImpl @Inject constructor(
     override suspend fun getNews(sourceId: String): List<News?>? {
         return dataSource.getNews(sourceId = sourceId)
     }
+
+    override suspend fun getSearchedNews(query: String): List<News?>? {
+        return dataSource.getSearchedNews(query)
+    }
 }

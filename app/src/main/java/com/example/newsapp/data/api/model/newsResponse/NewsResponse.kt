@@ -7,6 +7,9 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class NewsResponse(
 
+    @field:SerializedName("publishedAt")
+    val publishedAt: String? = null,
+
     @field:SerializedName("totalResults")
     val totalResults: Int? = null,
 
@@ -20,5 +23,14 @@ data class NewsResponse(
     val message: String? = null,
 
     @field:SerializedName("code")
-    val code: String? = null
+    val code: String? = null,
+
+    @field:SerializedName("category")
+    val category: String? = null,
+
+    @field:SerializedName("language")
+    val language: String? = null,
+
+    @field:SerializedName("q")
+    val query: String? = null
 ) : Parcelable

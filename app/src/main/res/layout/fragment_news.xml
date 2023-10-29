@@ -19,7 +19,7 @@
         tools:context=".ui.home.news.NewsFragment">
 
         <ProgressBar
-            android:id="@+id/prograssBar"
+            android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="@{vm.shouldShowLoading?View.VISIBLE:View.GONE}"
@@ -33,7 +33,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
-            app:tabMode="scrollable" />
+            app:tabBackground="@drawable/tab_color_selector"
+            app:tabIndicatorHeight="0dp"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextColor="@color/primary" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
@@ -42,7 +46,8 @@
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+            app:layout_constraintTop_toBottomOf="@id/tabLayout"
+            tools:listitem="@layout/item_news" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

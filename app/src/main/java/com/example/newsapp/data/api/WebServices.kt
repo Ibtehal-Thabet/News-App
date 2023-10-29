@@ -9,12 +9,14 @@ interface WebServices {
 
     @GET("v2/top-headlines/sources")
     suspend fun getSources(
-        @Query("apiKey") key: String = ApiConstants.apiKey
+        @Query("apiKey") key: String = ApiConstants.apiKey,
+        @Query("category") category: String
     ): SourcesResponse
 
     @GET("v2/everything")
     suspend fun getNews(
         @Query("apiKey") key: String = ApiConstants.apiKey,
-        @Query("sources") sources: String
+        @Query("sources") sources: String? = null,
+        @Query("q") query: String? = null,
     ): NewsResponse
 }

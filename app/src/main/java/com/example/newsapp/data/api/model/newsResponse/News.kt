@@ -30,5 +30,11 @@ data class News(
     val url: String? = null,
 
     @field:SerializedName("content")
-    val content: String? = null
+    val content: String? = null,
+
+    @field:SerializedName("category")
+    val category: String? = null,
+
+    @field:SerializedName("q")
+    val query: String? = null
 ) : Parcelable

@@ -13,10 +13,10 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        startHomeActivity()
+        startCategoriesActivity()
     }
 
-    private fun startHomeActivity() {
+    private fun startCategoriesActivity() {
         Handler(Looper.getMainLooper())
             .postDelayed({
                 val intent = Intent(this, HomeActivity::class.java)

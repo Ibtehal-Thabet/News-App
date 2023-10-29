@@ -8,4 +8,8 @@ class NewsOfflineDataSourceImpl @Inject constructor() : NewsDataSource {
     override suspend fun getNews(sourceId: String): List<News?>? {
         return listOf()
     }
+
+    override suspend fun getSearchedNews(query: String): List<News?>? {
+        return listOf()
+    }
 }

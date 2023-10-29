@@ -11,4 +11,9 @@ class NewsOnlineDataSourceImpl @Inject constructor(private val webServices: WebS
         val response = webServices.getNews(sources = sourceId)
         return response.articles
     }
+
+    override suspend fun getSearchedNews(query: String): List<News?>? {
+        val response = webServices.getNews(query = query)
+        return response.articles
+    }
 }

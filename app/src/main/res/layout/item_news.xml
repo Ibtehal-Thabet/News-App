@@ -11,24 +11,33 @@
     </data>
 
     <LinearLayout
+        android:id="@+id/news_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="6dp"
+        android:layout_margin="10dp"
         android:orientation="vertical"
-        android:padding="14dp">
+        android:background="@drawable/news_linear_shape"
+        android:backgroundTint="@color/gray">
 
-        <ImageView
+        <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/news_image"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius_top_left="15dp"
+            app:riv_corner_radius_top_right="15dp"
             app:placeholder="@{@drawable/ic_broken_image}"
-            app:url="@{news.urlToImage}" />
+            app:shapeAppearanceOverlay="@style/item_news_image_style"
+            app:url="@{news.urlToImage}"
+            tools:src="@drawable/ic_launcher_background" />
 
         <TextView
             android:id="@+id/news_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{news.title}"
+            android:paddingStart="4dp"
             android:textColor="@color/black"
             android:textSize="21sp"
             tools:text="News Title" />
@@ -39,9 +48,23 @@
             android:layout_height="wrap_content"
             android:lines="2"
             android:maxLines="2"
+            android:layout_marginTop="8dp"
+            android:paddingStart="4dp"
+            android:textColor="@color/newsColor"
             android:text="@{news.description}"
             android:textSize="16sp"
             tools:text="News Description" />
+
+        <TextView
+            android:id="@+id/news_time"
+            formatDate="@{news.publishedAt}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/newsColor"
+            android:textSize="13sp"
+            tools:text="3 hours ago" />
 
     </LinearLayout>
 </layout>

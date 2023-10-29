@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/pattern">
+
+        <TextView
+            android:id="@+id/lang_tv"
+            style="@style/textView_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="14dp"
+            android:text="@string/language"
+            android:textSize="21sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/language_spinner"
+            style="@style/textView_style"
+            android:layout_width="360dp"
+            android:layout_height="48dp"
+            android:layout_margin="18dp"
+            android:background="@drawable/spinner_shape"
+            android:spinnerMode="dropdown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lang_tv" />
+
+        <TextView
+            android:id="@+id/mode_tv"
+            style="@style/textView_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="14dp"
+            android:text="@string/mode"
+            android:textSize="21sp"
+            app:layout_constraintTop_toTopOf="@id/language_spinner" />
+
+        <ImageView
+            android:id="@+id/mode_image"
+            style="@style/modeImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="14dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mode_tv" />
+
+        <TextView
+            android:id="@+id/mode"
+            style="@style/modeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="14dp"
+            android:textColor="@color/textColor"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/mode_image"
+            app:layout_constraintTop_toBottomOf="@id/mode_tv" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/mode_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mode_tv" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -17,6 +17,18 @@ data class SourcesResponse(
     val message: String? = null,
 
     @field:SerializedName("code")
-    val code: String? = null
+    val code: String? = null,
+
+    @field:SerializedName("category")
+    val category: String? = null,
+
+    @field:SerializedName("language")
+    val language: String? = null,
+
+    @field:SerializedName("publishAt")
+    val publishAt: String? = null,
+
+    @field:SerializedName("q")
+    val query: String? = null
 
 ) : Parcelable

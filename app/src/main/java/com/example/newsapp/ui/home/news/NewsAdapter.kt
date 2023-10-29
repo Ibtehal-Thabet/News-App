@@ -10,16 +10,29 @@ class NewsAdapter(var newsList: List<News?>? = null) :
     RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsAdapter.ViewHolder {
-        val viewBinding = ItemNewsBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent, false
+        return ViewHolder(
+            ItemNewsBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent, false
+            )
         )
-        return ViewHolder(viewBinding)
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        if (position == 0) return 0
+        return 1
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val news = newsList!![position]
         holder.bind(news)
+
+        onItemClickListener?.let {
+            holder.itemView.rootView.setOnClickListener { view ->
+                it.onItemClick(news)
+            }
+        }
+
     }
 
     override fun getItemCount(): Int = newsList?.size ?: 0
@@ -29,10 +42,46 @@ class NewsAdapter(var newsList: List<News?>? = null) :
         notifyDataSetChanged()
     }
 
+    var onItemClickListener: OnItemClickListener? = null
+
+    fun interface OnItemClickListener {
+        fun onItemClick(news: News?)
+    }
+
     class ViewHolder(val itemBinding: ItemNewsBinding) : RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(news: News?) {
             itemBinding.news = news
             itemBinding.invalidateAll()
         }
     }
+
+
+    fun interface OnSearchViewChangeListener {
+        fun searchViewOnQueryTextSubmit(query: String?)
+    }
+
+//    class SearchedNewsViewHolder(val itemBinding: View) : RecyclerView.ViewHolder(itemBinding) {
+//
+////        private val searchView: SearchView = itemBinding.findViewById(R.id.search_view)
+//
+//        init {
+//            searchView.clearFocus()
+//            searchView.setOnQueryTextListener(object :
+//            SearchView.OnQueryTextListener{
+//                override fun onQueryTextSubmit(query: String?): Boolean {
+//                    val onSearchViewChangeListener: OnSearchViewChangeListener? = null
+//                    onSearchViewChangeListener?.searchViewOnQueryTextSubmit(query)
+//                    return false
+//                }
+//
+//                override fun onQueryTextChange(newText: String?): Boolean {
+//                    return false
+//                }
+//
+//            })
+//        }
+//
+//        fun bind(news: News?) {
+//        }
+//    }
 }

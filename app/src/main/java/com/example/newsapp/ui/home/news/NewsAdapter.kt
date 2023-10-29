@@ -55,33 +55,4 @@ class NewsAdapter(var newsList: List<News?>? = null) :
         }
     }
 
-
-    fun interface OnSearchViewChangeListener {
-        fun searchViewOnQueryTextSubmit(query: String?)
-    }
-
-//    class SearchedNewsViewHolder(val itemBinding: View) : RecyclerView.ViewHolder(itemBinding) {
-//
-////        private val searchView: SearchView = itemBinding.findViewById(R.id.search_view)
-//
-//        init {
-//            searchView.clearFocus()
-//            searchView.setOnQueryTextListener(object :
-//            SearchView.OnQueryTextListener{
-//                override fun onQueryTextSubmit(query: String?): Boolean {
-//                    val onSearchViewChangeListener: OnSearchViewChangeListener? = null
-//                    onSearchViewChangeListener?.searchViewOnQueryTextSubmit(query)
-//                    return false
-//                }
-//
-//                override fun onQueryTextChange(newText: String?): Boolean {
-//                    return false
-//                }
-//
-//            })
-//        }
-//
-//        fun bind(news: News?) {
-//        }
-//    }
 }
